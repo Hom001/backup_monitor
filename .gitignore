@@ -1,2 +1,4 @@
 requirements.txt
 .env
+data/subd_base.json
+__pycache__/
