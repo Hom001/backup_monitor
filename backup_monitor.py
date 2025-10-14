@@ -37,7 +37,7 @@ class BackupMonitor:
                     break
 
             if found_yesterday and yesterday_broken:
-                message = (f'\u26D4 По организации {org} выгрузка за вчера ({self.yesterday.date()}) битая.'
+                message = (f'\u26D4 По организации {org} выгрузка за вчера ({self.yesterday.date()}) '
                             'битая.\n' + self.find_last_valid_backup(org_backups, org))
                 messages.append(message)
             elif not found_yesterday:
