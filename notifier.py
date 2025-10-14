@@ -17,7 +17,7 @@ class TelegramNotifier:
         self.chat_id: str = str(chat_id)
         self.header = header
 
-    def send_message(self, messages: List[str]):
+    def send_messages(self, messages: List[str]):
         # отправка заголовка
         self.bot.send_message(self.chat_id, self.header)
 
