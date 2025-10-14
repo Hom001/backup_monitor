@@ -2,7 +2,7 @@ import json
 from typing import Union, Dict, List
 
 
-def read_json(filename: str) -> Union[List[str], Dict[str, List]]:
+def read_json_list(filename: str) -> List[str]:
     """
     Универсальная читалка JSON-файлов с обработкой ошибок.
 
@@ -12,7 +12,10 @@ def read_json(filename: str) -> Union[List[str], Dict[str, List]]:
     """
     try:
         with open(filename, 'r', encoding='utf-8') as file:
-            return json.load(file)
+            data = json.load(file)
+            if not isinstance(data, list):
+                raise ValueError(f'{filename} должен содержать список.')
+            return data
     except FileNotFoundError:
         raise FileNotFoundError(f'Файл не найден: {filename}')
     except json.JSONDecodeError as e:
