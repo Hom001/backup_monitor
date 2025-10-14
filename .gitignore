@@ -2,3 +2,4 @@ requirements.txt
 .env
 data/subd_base.json
 __pycache__/
+script_for_building.txt
