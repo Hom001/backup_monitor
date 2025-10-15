@@ -2,6 +2,7 @@ from backup_reader import BackupReader
 from backup_monitor import BackupMonitor
 from notifier import TelegramNotifier
 from utils import read_json_list
+import time
 
 
 def main():
@@ -11,7 +12,14 @@ def main():
     org_list = read_json_list(PATH_TO_ORG_LIST)
 
     reader = BackupReader(PATH_TO_BACKUPS, org_list)
-    backups = reader.read_backups()
+    while True:
+        try:
+            backups = reader.read_backups()
+            break
+        except (FileNotFoundError, NotADirectoryError, PermissionError, OSError) as e:
+            print(f"Ошибка доступа к папке: {e}")
+            print(f"Повтор через 60 секунд...\n")
+            time.sleep(60)
 
     monitor = BackupMonitor(backups, org_list)
     messages = monitor.analyze()
