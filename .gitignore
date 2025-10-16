@@ -4,5 +4,5 @@ __pycache__/
 script_for_building.txt
 build/
 dist/
-backups_monitor_v_2.spec
-backups_monitor_v_2.1.spec
+backups_monitor_v_2.2.spec
+true_backups.json
