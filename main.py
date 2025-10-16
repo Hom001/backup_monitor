@@ -24,6 +24,9 @@ def main():
     monitor = BackupMonitor(backups, org_list)
     messages = monitor.analyze()
 
+    if not messages:
+        messages.append('\u2705 По всем базам выгрузка прошла корректно.')
+
     notifier = TelegramNotifier()
     notifier.send_messages(messages)
 
