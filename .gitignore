@@ -1,4 +1,3 @@
-requirements.txt
 .env
 data/subd_base.json
 __pycache__/
@@ -6,3 +5,4 @@ script_for_building.txt
 build/
 dist/
 backups_monitor_v_2.spec
+backups_monitor_v_2.1.spec
