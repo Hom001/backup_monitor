@@ -1,6 +1,6 @@
-from backup_reader import BackupReader
-from backup_monitor import BackupMonitor
-from notifier import TelegramNotifier
+from services.backup_reader import BackupReader
+from services.backup_monitor import BackupMonitor
+from services.notifier import TelegramNotifier
 from utils import read_json_list
 import time
 
