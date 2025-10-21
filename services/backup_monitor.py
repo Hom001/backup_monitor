@@ -1,7 +1,7 @@
 from typing import Dict, List
 from datetime import datetime, timedelta
 
-from backup_reader import Backup
+from services.backup_reader import Backup
 
 
 class BackupMonitor:

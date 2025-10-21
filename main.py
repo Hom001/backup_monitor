@@ -1,17 +1,19 @@
+import time
+
 from services.backup_reader import BackupReader
 from services.backup_monitor import BackupMonitor
 from services.notifier import TelegramNotifier
 from utils import read_json_list
-import time
+from core.settings import settings
 
 
 def main():
-    PATH_TO_BACKUPS = 'Y:'
-    PATH_TO_ORG_LIST = r'D:\dev\backup_monitor_v2\data\subd_base.json'
+    path_to_backups = settings.PATH_TO_BACKUPS
+    path_to_org_list = settings.PATH_TO_ORG_LIST
 
-    org_list = read_json_list(PATH_TO_ORG_LIST)
+    org_list = read_json_list(path_to_org_list)
 
-    reader = BackupReader(PATH_TO_BACKUPS, org_list)
+    reader = BackupReader(path_to_backups, org_list)
     while True:
         try:
             backups = reader.read_backups()

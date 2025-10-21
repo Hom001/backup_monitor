@@ -1,14 +1,13 @@
 import telebot
-import os
 from typing import List
-from dotenv import load_dotenv
+
+from core.settings import settings
 
 
 class TelegramNotifier:
     def __init__(self, header: str = f"{'*'*15} МОНИТОРИНГ БЭКАПОВ {'*'*15}"):
-        load_dotenv()
-        token = os.getenv("BOT_API_TOKEN")
-        chat_id = os.getenv("MY_CHAT_ID")
+        token = settings.BOT_API_TOKEN
+        chat_id = settings.MY_CHAT_ID
 
         if not token or not chat_id:
             raise ValueError("BOT_API_TOKEN и MY_CHAT_ID должны быть заданы в .env файле.")
